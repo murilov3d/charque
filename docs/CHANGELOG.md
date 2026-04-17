@@ -6,16 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2026-04-17
 ### Added
-- **GitHub Actions workflow** (`.github/workflows/deploy.yml`): Pipeline CI/CD completo que builda o projeto com Vite e faz deploy automático para GitHub Pages a cada push na branch `main`. Usa `actions/configure-pages`, `upload-pages-artifact` e `deploy-pages`.
 - **Ícones PWA** (`public/shark-192x192.png`, `public/shark-512x512.png`): Ícones gerados com silhueta de tubarão neon sobre fundo escuro, necessários para instalação do PWA no celular (exigidos pelo manifest).
 - Propriedade `includeAssets` no plugin VitePWA para garantir que ícones e SVGs sejam incluídos no precache do Service Worker.
 - Definição explícita de `icons` no Web App Manifest com tamanhos 192x192 e 512x512, incluindo `purpose: 'any maskable'` para compatibilidade com ícones adaptativos Android.
 
 ### Fixed
-- Erro no GitHub Actions onde `npm ci` falhava devido a um conflito de versão nas dependências (`vite@8` vs `vite-plugin-pwa`), contornado adicionando flag `--legacy-peer-deps`.
+- Erro no deploy automágico do GitHub Actions resolvido abandonando o `deploy.yml` inteiro. Mudado o processo de publicação do PWA para utilizar a branch isolada `gh-pages`. O build e push agora são feitos pela biblioteca `gh-pages` a partir da máquina local.
 
 ### Changed
-- **`vite.config.js`**: Adicionado `base: '/charque/'` para servir os assets corretamente no subdiretório do GitHub Pages (`muriloscezar.github.io/charque/`).
+- **`vite.config.js`**: Adicionado `base: '/charque/'` para servir os assets corretamente no subdiretório do GitHub Pages (`murilov3d.github.io/charque/`).
+
+### Removed
+- **GitHub Actions workflow** (`.github/workflows/deploy.yml`): Removido devido a complexidade de permissões para publicar pelo Github Actions.
 - **`vite.config.js`**: `start_url` e `scope` do manifest agora usam `'./'` (relativo) ao invés de `'/'` (absoluto), garantindo que o PWA funcione corretamente quando hospedado em subdiretório.
 - **`vite.config.js`**: Nome do app atualizado de "Charque - Snake Game" para "Charque - Neon Shark Hunt" no manifest.
 
