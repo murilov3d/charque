@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Charque - PWA Snake</title>
+    <script type="module" crossorigin src="/charque/assets/index-BdpXhS3I.js"></script>
+    <link rel="stylesheet" crossorigin href="/charque/assets/index-VID8Edmi.css">
+  <link rel="manifest" href="/charque/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/charque/registerSW.js"></script></head>
+  <body class="bg-slate-900 text-white overflow-hidden touch-none h-screen w-screen select-none relative">
+    
+    <!-- Canvas container -->
+    <canvas id="gameCanvas" class="absolute top-0 left-0 w-full h-full block z-0"></canvas>
+
+    <!-- UI Overlay Layer -->
+    <div id="uiLayer" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none flex flex-col justify-between">
+      
+      <!-- Top Bar: Scores -->
+      <div id="scorePanel" class="flex justify-between items-center p-4 opacity-100 transition-opacity duration-300">
+        <div class="text-neon-blue font-bold tracking-widest text-xl drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">
+          SCORE: <span id="valScore">0</span>
+        </div>
+        <div class="text-neon-pink font-bold tracking-widest text-lg drop-shadow-[0_0_5px_rgba(255,0,60,0.8)]">
+          HIGH: <span id="valHighScore">0</span>
+        </div>
+      </div>
+
+      <!-- Main/Game Over Menu -->
+      <div id="mainMenu" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/80 backdrop-blur-sm pointer-events-auto transition-opacity duration-300">
+        <h1 class="text-5xl font-black mb-2 text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">
+          CHARQUE
+        </h1>
+        <p class="text-slate-300 tracking-[0.2em] mb-12 uppercase text-sm font-semibold">Neon Shark Hunt</p>
+        
+        <div id="gameOverText" class="hidden flex-col items-center mb-8">
+            <h2 class="text-3xl text-neon-pink font-bold drop-shadow-[0_0_8px_rgba(255,0,60,0.8)]">GAME OVER</h2>
+            <p class="text-slate-400 mt-2">Você mordeu o próprio rabo ou a parede!</p>
+        </div>
+
+        <button id="btnStart" class="px-8 py-4 bg-neon-blue/20 border border-neon-blue text-neon-blue font-bold tracking-wider rounded-lg shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:bg-neon-blue/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.7)] transition-all active:scale-95">
+          MERGULHAR
+        </button>
+      </div>
+
+      <!-- Optional D-Pad (Visible only on some screens / setting enabled) -->
+      <div id="dpad" class="hidden mb-8 w-full pb-8 self-end flex-col items-center gap-2 pointer-events-auto opacity-70">
+        <button id="dpadUp" class="w-16 h-16 bg-slate-800/80 rounded border border-slate-700 active:bg-slate-700 flex items-center justify-center">⬆️</button>
+        <div class="flex gap-16">
+          <button id="dpadLeft" class="w-16 h-16 bg-slate-800/80 rounded border border-slate-700 active:bg-slate-700 flex items-center justify-center">⬅️</button>
+          <button id="dpadRight" class="w-16 h-16 bg-slate-800/80 rounded border border-slate-700 active:bg-slate-700 flex items-center justify-center">➡️</button>
+        </div>
+        <button id="dpadDown" class="w-16 h-16 bg-slate-800/80 rounded border border-slate-700 active:bg-slate-700 flex items-center justify-center">⬇️</button>
+      </div>
+      
+    </div>
+
+    <!-- Main Module -->
+  </body>
+</html>
