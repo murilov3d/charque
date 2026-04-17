@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Propriedade `includeAssets` no plugin VitePWA para garantir que ícones e SVGs sejam incluídos no precache do Service Worker.
 - Definição explícita de `icons` no Web App Manifest com tamanhos 192x192 e 512x512, incluindo `purpose: 'any maskable'` para compatibilidade com ícones adaptativos Android.
 
+### Fixed
+- Erro no GitHub Actions onde `npm ci` falhava devido a um conflito de versão nas dependências (`vite@8` vs `vite-plugin-pwa`), contornado adicionando flag `--legacy-peer-deps`.
+
 ### Changed
 - **`vite.config.js`**: Adicionado `base: '/charque/'` para servir os assets corretamente no subdiretório do GitHub Pages (`muriloscezar.github.io/charque/`).
 - **`vite.config.js`**: `start_url` e `scope` do manifest agora usam `'./'` (relativo) ao invés de `'/'` (absoluto), garantindo que o PWA funcione corretamente quando hospedado em subdiretório.
