@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: #00f3ff;
+  --color-neon-pink: #ff003c;
+  --color-neon-glow: rgba(0, 243, 255, 0.7);
+}
+
+@layer base {
+  body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overscroll-behavior: none;
+  }
+}
+
