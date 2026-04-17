@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Added
+- **Trilha Sonora** (`public/musicas/track1.mp3`, `public/musicas/track2.mp3`): Música de fundo implementada. A trilha inicia ao clicar em "Mergulhar" e cicla automaticamente entre as duas faixas em loop, sendo pausada no final do jogo (Game Over). As músicas também foram adicionadas ao cache do Service Worker (`vite.config.js`) para funcionarem offline de primeira.
+
 ## [1.1.0] - 2026-04-17
 ### Added
 - **Ícones PWA** (`public/shark-192x192.png`, `public/shark-512x512.png`): Ícones gerados com silhueta de tubarão neon sobre fundo escuro, necessários para instalação do PWA no celular (exigidos pelo manifest).

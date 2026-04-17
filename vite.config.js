@@ -15,7 +15,7 @@ export default defineConfig({
       devOptions: {
         enabled: true
       },
-      includeAssets: ['favicon.svg', 'icons.svg', 'shark-192x192.png', 'shark-512x512.png'],
+      includeAssets: ['favicon.svg', 'icons.svg', 'shark-192x192.png', 'shark-512x512.png', 'musicas/track1.mp3', 'musicas/track2.mp3'],
       manifest: {
         name: 'Charque - Neon Shark Hunt',
         short_name: 'Charque',

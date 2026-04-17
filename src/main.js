@@ -35,6 +35,18 @@ let isPlaying = false;
 let highScore = localStorage.getItem('charque_highscore') || 0;
 valHighScore.textContent = highScore;
 
+// Music System
+const playlist = ['./musicas/track1.mp3', './musicas/track2.mp3'];
+let currentTrackIndex = 0;
+const bgMusic = new Audio(playlist[currentTrackIndex]);
+bgMusic.volume = 0.5;
+
+bgMusic.addEventListener('ended', () => {
+  currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+  bgMusic.src = playlist[currentTrackIndex];
+  bgMusic.play().catch(e => console.log('Audio error:', e));
+});
+
 // Resize handling
 window.addEventListener('resize', () => {
   renderer.resize();
@@ -66,6 +78,7 @@ function startGame() {
 
   engine.reset();
   inputHandler.setDirection(1, 0); // Reset initial direction
+  bgMusic.play().catch(e => console.log('Audio autoplay prevented'));
   isPlaying = true;
   lastTime = performance.now();
   accumulator = 0;
@@ -77,6 +90,7 @@ function startGame() {
 
 function handleGameOver() {
   isPlaying = false;
+  bgMusic.pause();
   cancelAnimationFrame(animationFrameId);
   
   gameOverText.classList.remove('hidden');
